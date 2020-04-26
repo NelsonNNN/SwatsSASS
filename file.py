@@ -7,6 +7,10 @@ app=Flask(__name__)
 def home():
     return render_template('home.html')
 
+@app.route('/products')
+def products():
+    return render_template('products.html')
+
 @app.route('/login')
 def login():
     return render_template('login.html')
