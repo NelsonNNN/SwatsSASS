@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='{{url_for('static', filename='scss/style.css')}}'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Flask</title>
+</head>
+<body>
+<img src='{{url_for('static', filename='scss/background.jpg')}}' class='page-img'>
+    <header class='header'>
+        <div class='checkbox'>
+            <input type='checkbox' class='toggler'>
+            <div class='btn'><div></div></div>
+                <nav class='navigation'>
+                    <div>
+                        <div>
+                            <ul>
+                                <li><a href='{{url_for('home')}}'>Home</a></li>
+                                <li><a href='{{url_for('about')}}'>About</a></li>
+                                <li><a href='{{url_for('login')}}'>Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class='main'>
+        {% block content%}
+        {%endblock%}
+    </main>
+</body>
+</html>

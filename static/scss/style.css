@@ -1,0 +1,647 @@
+body {
+  margin: 0;
+}
+
+body .page-img {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  z-index: -5;
+}
+
+/*layout.html*/
+.header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
+.header .checkbox {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  z-index: 1;
+  position: absolute;
+}
+
+.header .checkbox .navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .checkbox .navigation > div {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  width: 200vw;
+  height: 200vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.header .checkbox .navigation > div > div {
+  opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.header .checkbox .navigation > div > div ul li {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .checkbox .navigation > div > div ul li a {
+  text-decoration: none;
+  color: #d6d6d4;
+  padding: 10px;
+}
+
+.header .checkbox .toggler {
+  position: fixed;
+  z-index: 4;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.header .checkbox .toggler:checked + .btn {
+  z-index: 3;
+}
+
+.header .checkbox .toggler:checked + .btn > div {
+  background: #fdf900;
+  z-index: 3;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.header .checkbox .toggler:checked + .btn > div::before, .header .checkbox .toggler:checked + .btn > div::after {
+  z-index: 3;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  background: inherit;
+}
+
+.header .checkbox .toggler:checked ~ .navigation {
+  z-index: 2;
+  visibility: visible;
+  -webkit-transition: all 0.1s ease 0.1s;
+  transition: all 0.1s ease 0.1s;
+}
+
+.header .checkbox .toggler:checked ~ .navigation > div {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+.header .checkbox .toggler:checked ~ .navigation > div > div {
+  opacity: 1;
+  -webkit-transition: ease 0.3s ease 0.3s;
+  transition: ease 0.3s ease 0.3s;
+}
+
+.header .checkbox .toggler:checked:hover + .btn > div {
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+  top: 0;
+}
+
+.header .checkbox .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+}
+
+.header .checkbox .btn div {
+  width: 70%;
+  height: 4px;
+  background: #032f3e;
+  z-index: 1;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease-in-out 0.3s;
+  transition: all 0.3s ease-in-out 0.3s;
+  position: relative;
+}
+
+.header .checkbox .btn div::before, .header .checkbox .btn div::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: inherit;
+  z-index: 1;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease-in-out 0.3s;
+  transition: all 0.3s ease-in-out 0.3s;
+  z-index: 1;
+}
+
+.header .checkbox .btn div::before {
+  top: -16px;
+}
+
+.header .checkbox .btn div::after {
+  top: 16px;
+}
+
+.main {
+  position: relative;
+  top: 5em;
+  /*home.html*/
+  /*login page*/
+}
+
+.main .home-div {
+  position: absolute;
+}
+
+.main .home-div .first {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  margin: 0;
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+      grid-template-areas: 'upleft katikati katikati rightsec' 'downleft katikati katikati rightsec';
+}
+
+.main .home-div .first .upper-left {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: upleft;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+  margin: 0 20px;
+  min-height: 200px;
+  background-image: url("1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .home-div .first .upper-left h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0;
+  color: #fdf900;
+}
+
+.main .home-div .first .bottom-left {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: downleft;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+  margin: 0 20px;
+  min-height: 200px;
+  background-image: url("2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .home-div .first .bottom-left h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0;
+  color: #fdf900;
+}
+
+.main .home-div .first .middle-sec {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: katikati;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+  margin: 0 20px;
+  min-height: 200px;
+  margin: 0;
+  background-image: url("3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .home-div .first .middle-sec h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 0;
+  color: #fdf900;
+}
+
+.main .home-div .first .middle-sec p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 0.7rem;
+  margin-bottom: 0;
+  color: #fdf900;
+  color: #032f3e;
+}
+
+.main .home-div .first .right-sec {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  grid-area: rightsec;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+  margin: 0 20px;
+  min-height: 200px;
+  background-image: url("4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .home-div .first .right-sec h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0;
+  color: #fdf900;
+}
+
+.main .home-div .middle-page {
+  margin-top: 30px;
+}
+
+.main .home-div .middle-page ul {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  margin: 0;
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  border: none;
+  padding: 5rem;
+}
+
+.main .home-div .middle-page ul li {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .home-div .middle-page ul li a {
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px;
+  border-radius: 100%;
+  color: #fdf900;
+  background-color: #032f3e;
+  -webkit-transition: all 0.3s ease 0.3s;
+  transition: all 0.3s ease 0.3s;
+}
+
+.main .home-div .middle-page ul li a:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+  opacity: 0.7;
+}
+
+.main .home-div .middle-page ul li small {
+  font-family: sans-serif;
+  margin-top: 5px;
+}
+
+.main .home-div .bottom {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  margin: 0;
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+  margin: 0 20px;
+  min-height: 200px;
+  margin-bottom: 20px;
+  border: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .home-div .bottom .picture {
+  width: 100%;
+  height: 400px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+}
+
+.main .home-div .bottom p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0;
+  color: #fdf900;
+  color: #032f3e;
+}
+
+.main .home-div .footer {
+  background: #032f3e;
+  padding: 2rem;
+  border: none;
+  text-align: center;
+}
+
+.main .home-div .footer p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0;
+  color: #fdf900;
+  color: #d6d6d4;
+}
+
+.main .login {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 38px 2px rgba(0, 0, 0, 0.75);
+  margin: 0 20px;
+  min-height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: rows;
+          flex-direction: rows;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  min-width: 60%;
+  min-height: 300px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.main .login .login-div1 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px;
+  height: 100%;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40%;
+}
+
+.main .login .login-div1 h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 0;
+  color: #fdf900;
+}
+
+.main .login .login-div2 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px;
+  height: 100%;
+  width: 60%;
+  margin-left: 10px;
+}
+
+.main .login .login-div2 .form {
+  border: none;
+  background: transparent;
+}
+
+.main .login .login-div2 .form .fieldset {
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: rows;
+          flex-direction: rows;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .login .login-div2 .form .fieldset .label {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 0.7rem;
+  margin-bottom: 0;
+  color: #fdf900;
+  color: #032f3e;
+}
+
+.main .login .login-div2 .form .fieldset .input {
+  border: none;
+  width: 100%;
+  background: transparent;
+  border-bottom: 2px solid #032f3e;
+}
+
+.main .login .login-div2 .form .fieldset .input:checked {
+  border: 1px solid #032f3e;
+  background: inherit;
+}
+
+.main .login .login-div2 .submit {
+  width: 100%;
+  background: #032f3e;
+  color: #d6d6d4;
+  -webkit-transition: all 0.3s ease 0.3s;
+  transition: all 0.3s ease 0.3s;
+}
+
+.main .login .login-div2 .submit:hover {
+  opacity: 0.7;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,40 @@
+@mixin layout {
+    margin: 0;
+    padding: 0;
+}
+@mixin grids{
+    display:grid;
+    grid-gap: 10px;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+ }
+ 
+ @mixin flexmix($dir){
+    display:flex;
+    flex-direction: $dir;
+    justify-content: center;
+    align-items: center;
+ }
+
+ @mixin boxes{
+     box-sizing: border-box;
+     padding: 10px;
+     box-shadow: 0px 0px 38px 2px rgba(0,0,0,0.75);
+     margin: 0 20px;
+     min-height: 200px;
+ }
+
+ @mixin imgs {
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+ }
+
+ @mixin fonts($size) {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: $size;
+    margin-bottom: 0;
+    color: $deepyellow;
+ }

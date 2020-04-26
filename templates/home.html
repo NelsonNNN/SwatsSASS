@@ -1,0 +1,40 @@
+{% extends 'layout.html'%}
+{% block content  %}
+    <div class='home-div'>
+        <section class='first'>
+            <div class='upper-left'>
+                <h2>Car Section</h2>
+            </div>
+            <div class='bottom-left'>
+                <h2>Phone Section</h2>
+            </div>
+            <div class='middle-sec'>
+                <h1>This is the Home Page</h1>
+                <p>A lamboghini was running with ice. He went far far away.
+                He start playing with another lambighini. The lamboghini his name was Prince.
+                He was color golden.He was the best lamboghini in the world. Then he said pink lamboghini
+                do you want to come with me. And he said yes.</p>
+            </div>
+            <div class='right-sec'>
+                <h2>Contact Us</h2>
+            </div>
+        </section>
+        <section class='middle-page'>
+            <ul>
+                <li><a href='#'><i class="fa fa-address-card"></i></a><small>Communication</small></li>
+                <li><a href='#'><i class="fa fa-bullseye"></i></a><small>Task and Projects</small></li>
+                <li><a href='#'><i class="fa fa-crosshairs"></i></i></a><small>CRM</small></li>
+                <li><a href='#'><i class="fa fa-comment"></i></i></i></a><small>Contact Center</small></li>
+            </ul>
+        </section>
+        <section class='bottom'>
+            <image class='picture' src='{{url_for('static', filename='scss/picture.jpg')}}', default='image not found'>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo non repellendus?
+            Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi.</p>
+        </section>
+        <footer class='footer'>
+        <p>Nelliville &copy; 2020</p>
+        </footer>
+    </div>
+
+{% endblock  %}

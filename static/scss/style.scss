@@ -1,0 +1,339 @@
+@import './variables';
+@import './mixin';
+
+body{
+    margin: 0;
+    .page-img{
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        opacity: 0.5;
+        z-index: -5;
+    }
+}
+
+/*layout.html*/
+.header{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;      
+    
+
+    .checkbox{
+        box-sizing: border-box;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        z-index: 1;
+        position: absolute;
+    
+        .navigation{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            >div{
+                background-color: rgba(0, 0, 0, 0.8);
+                border-radius: 50%;
+                transform: scale(0);
+                width: 200vw;
+                height: 200vh;
+                @include flexmix(column);
+                flex:none;
+                transition: all 0.4s ease-in-out;
+    
+                >div{
+                    opacity: 0;
+                    @include flexmix(column);
+                    transition: all 0.4s ease;
+                    ul{
+                        li{
+                            list-style: none;
+                            @include flexmix(column);
+    
+                            a{
+                                text-decoration: none;
+                                color: $deepwhite;
+                                padding: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+        .toggler{
+            position: fixed;
+            z-index: 4;
+            width: 50px;
+            height: 50px;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            
+            &:checked{
+                +.btn {
+                    z-index: 3;
+                    >div{
+                        background: $deepyellow;
+                        z-index: 3;
+                        transform: rotate(135deg);
+                        &::before, &::after{
+                            z-index: 3;
+                            transform: rotate(90deg);
+                            background: inherit;
+                        }
+                    }
+                }
+                ~.navigation {
+                    z-index: 2;
+                    visibility: visible;
+                    transition: all 0.1s ease 0.1s;
+                    >div{
+                        transform: scale(1);
+                        transition-duration: 0.4s;
+                        >div{
+                            opacity: 1;
+                            transition: ease 0.3s ease 0.3s;
+                        }
+                    }
+                }
+                &:hover{
+                    +.btn{
+                        >div{
+                            transform: rotate(225deg);
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .btn{ 
+            @include flexmix(column);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+            div{
+                width: 70%;
+                height: 4px;
+                background: $deepblue;
+                z-index: 1;
+                border-radius: 5px;
+                transition: all 0.3s ease-in-out 0.3s;
+                position: relative;
+                &::before,
+                &::after{
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 4px;
+                    background: inherit;
+                    z-index: 1;
+                    border-radius: 5px;
+                    transition: all 0.3s ease-in-out 0.3s;
+                    z-index: 1;
+                }
+                &::before{
+                    top: -16px;
+                } 
+                &::after{
+                    top: 16px;
+                }
+            }        
+        }
+    }
+}
+.main{
+    position: relative;
+    top: 5em;
+
+    /*home.html*/
+    .home-div{
+        position: absolute;
+        .first{
+            @include grids();
+            grid-template-areas: 
+            'upleft katikati katikati rightsec'
+            'downleft katikati katikati rightsec';
+            .upper-left{
+                grid-area: upleft;
+                @include boxes();
+                background-image: url('1.jpg');
+                @include imgs();
+                @include flexmix(column);
+                h2 {
+                    @include fonts(1rem)
+                }
+            }
+            .bottom-left{
+                grid-area: downleft;
+                @include boxes();
+                background-image: url('2.jpg');
+                @include imgs();
+                @include flexmix(column);
+                h2 {
+                    @include fonts(1rem);
+                }
+            }
+            .middle-sec{
+                grid-area: katikati;
+                @include boxes();
+                margin: 0;
+                background-image: url('4.jpg');
+                @include imgs();
+                @include flexmix(column);
+                h1 {
+                    @include fonts(2rem);
+                }
+                p{
+                    @include fonts(0.7rem);
+                    color: $deepblue;
+                }
+            }
+            .right-sec{
+                grid-area: rightsec;
+                @include boxes();
+                background-image: url('5.jpg');
+                @include imgs();
+                @include flexmix(column);
+                h2 {
+                    @include fonts(1rem);
+                }
+            }
+        }
+        .middle-page {
+            margin-top: 30px;
+            ul{
+            @include grids();
+            grid-template-columns: repeat(4, 1fr);
+            border: none;
+            padding: 5rem;
+
+                li{
+                    list-style: none;
+                    @include flexmix(column);
+                    a{
+                        text-decoration: none;
+                        box-sizing: border-box;
+                        padding: 20px;
+                        border-radius: 100%;
+                        color: $deepyellow;
+                        background-color: $deepblue;
+                        transition: all 0.3s ease 0.3s;
+                        &:hover{
+                            transform: scale(1.2, 1.2);
+                            opacity: 0.7;
+                        }
+                    }
+                    small{
+                        font-family: sans-serif;
+                        margin-top: 5px;                   
+                    }
+                }
+            }
+        }
+        .bottom{
+            @include grids();
+            grid-template-columns: repeat(2, 1fr);
+            @include boxes();
+            margin-bottom: 20px;
+            border: none;
+            align-items: center;
+            .picture{
+                width: 100%;
+                height: 400px;
+                box-sizing: border-box;
+                padding: 10px;
+            }
+            p{
+                @include fonts(1rem);
+                color: $deepblue;
+            }
+        }
+        .footer{
+            background: $deepblue;
+            padding: 2rem;
+            border: none;
+            text-align: center;
+            p{
+                @include fonts(1rem);
+                color:$deepwhite;
+            }
+        }
+    }
+
+    /*login page*/
+    .login{
+        @include boxes();
+        @include flexmix(rows);
+        position: absolute;
+        top:300px;
+        left: 50%;
+        min-width: 60%;
+        min-height: 300px;
+        transform: translate(-50%, -50%);
+
+        .login-div1{
+            box-sizing: border-box;
+            padding: 20px;
+            height: 100%;
+            vertical-align: middle;
+            align-items: center;
+            width: 40%;
+            h3{
+                @include fonts(2rem)
+            }
+        }
+        .login-div2{
+            box-sizing: border-box;
+            padding: 20px;
+            height: 100%;
+            width: 60%;
+            margin-left: 10px;
+            .form{
+                border: none;
+                background: transparent;
+                .fieldset{
+                    border: none;
+                    @include flexmix(rows);
+                    .label{
+                        @include fonts(0.7rem);
+                        color: $deepblue
+                    }
+                    .input{
+                        border: none;
+                        width: 100%;
+                        background: transparent;
+                        border-bottom: 2px solid $deepblue;
+                        &:checked{
+                            border: 1px solid $deepblue;
+                            background: inherit;
+                        }
+                    }
+                }
+            }
+            .submit{
+                width: 100%;
+                background: $deepblue;
+                color: $deepwhite;
+                transition: all 0.3s ease 0.3s;
+                &:hover{
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
