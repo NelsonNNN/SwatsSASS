@@ -219,7 +219,6 @@ body{
                     }
                     h2 {
                         @include fonts(1rem);
-                        color: $deepwhite;
                     }
                 }
                 .middle-sec{
@@ -240,11 +239,9 @@ body{
                     }
                     h1 {
                         @include fonts(2rem);
-                        color: $deepwhite;
                     }
                     p{
                         @include fonts(1rem);
-                        color: $deepwhite;
                     }
                 }
                 .right-sec{
@@ -263,11 +260,9 @@ body{
                     }
                     h2 {
                         @include fonts(1rem);
-                        color: $deepwhite;
                     }
                     p{
                         @include fonts(1rem);
-                        color: $deepwhite;
                     }
                 }           
             }
@@ -372,6 +367,7 @@ body{
                 position: absolute;
                 top: 30%;
                 left: 50%;
+                width: 70vw;
                 transform: translate(-50%, -50%);
                 @include boxes();
                 @include flexmix(row);           
@@ -383,7 +379,7 @@ body{
                     align-items: center;
                     width: 40%;
                     h3{
-                        @include fonts(2rem)
+                        @include fonts(1rem)
                     }
                 }
                 .login-div2{
@@ -446,8 +442,8 @@ body{
                     @include boxes;
                     @include flexmix(column);
                     background-color: $deepwhite;
-                    image{
-                        width: auto;
+                    img{
+                        width: 100%;
                         height: 50%;
                         box-sizing: border-box;
                         padding: 10px;
