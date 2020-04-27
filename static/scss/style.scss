@@ -1,441 +1,433 @@
 @import './variables';
 @import './mixin';
 
-body{
-    margin: 0;
-    .page-img{
-        position: fixed;
-        height: auto;
-        width: 100%;
-        opacity: 0.3;
-        z-index: -5;
-    }
-}
-
-/*layout.html*/
-.header{
+*{
     margin: 0;
     padding: 0;
-    width: 100%;
-    position: relative;      
-    
-
-    .checkbox{
-        box-sizing: border-box;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        z-index: 1;
-        position: absolute;
-    
-        .navigation{
-            position: fixed;
+}
+body{
+    position: relative;
+    top: 0;
+    left: 0;
+    /*layout.html*/
+    .header{
+        height: 50px;
+        width: 50px;
+        .checkbox{
+            box-sizing: border-box;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            visibility: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-    
-            >div{
-                background-color: rgba(0, 0, 0, 0.8);
-                border-radius: 50%;
-                transform: scale(0);
-                width: 200vw;
-                height: 200vh;
-                @include flexmix(row);
-                flex:none;
-                transition: all 0.4s ease-in-out;
-    
+            margin: 0;
+            z-index: 1;
+            position: fixed;
+            height: 50px;
+            width: 50px;
+        
+            .navigation{
+                position: fixed;
+                top: 0;
+                left: 0;
+                visibility: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                width: 100vw;
+        
                 >div{
-                    opacity: 0;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    width: 200vw;
+                    height: 200vh;
                     @include flexmix(row);
-                    transition: all 0.4s ease;
-                    ul{
-                        li{
-                            list-style: none;
-                            @include flexmix(row);
-    
-                            a{
-                                text-decoration: none;
-                                color: $deepwhite;
-                                padding: 10px;
+                    flex:none;
+                    transition: all 0.4s ease-in-out;
+        
+                    >div{
+                        opacity: 0;
+                        @include flexmix(row);
+                        transition: all 0.4s ease;
+                        ul{
+                            li{
+                                list-style: none;
+                                @include flexmix(row);
+        
+                                a{
+                                    text-decoration: none;
+                                    color: $deepwhite;
+                                    padding: 10px;
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-    
-        .toggler{
-            position: fixed;
-            z-index: 4;
-            width: 50px;
-            height: 50px;
-            margin: 0;
-            padding: 0;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            
-            &:checked{
-                +.btn {
-                    z-index: 3;
-                    >div{
-                        background: $deepyellow;
+        
+            .toggler{
+                z-index: 4;
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                margin: 0;
+                padding: 0;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                
+                &:checked{
+                    +.btn {
                         z-index: 3;
-                        transform: rotate(135deg);
-                        transition-delay: 0.3s;
-                        &::before, &::after{
+                        >div{
+                            background: $deepyellow;
                             z-index: 3;
-                            transform: rotate(90deg);
-                            background: inherit;
-                            transition-delay: inherit;
+                            transform: rotate(135deg);
+                            transition-delay: 0.3s;
+                            &::before, &::after{
+                                z-index: 3;
+                                transform: rotate(90deg);
+                                background: inherit;
+                                transition-delay: inherit;
+                            }
                         }
                     }
-                }
-                ~.navigation {
-                    z-index: 2;
-                    visibility: visible;
-                    transition: all 0.1s ease 0.1s;
-                    >div{
-                        transform: scale(1);
-                        transition-duration: 0.4s;
+                    ~.navigation {
+                        z-index: 2;
+                        visibility: visible;
+                        transition: all 0.1s ease 0.1s;
                         >div{
-                            opacity: 1;
-                            transition: ease 0.3s ease 0.3s;
+                            transform: scale(1);
+                            transition-duration: 0.4s;
+                            >div{
+                                opacity: 1;
+                                transition: ease 0.3s ease 0.3s;
+                            }
                         }
                     }
-                }
-                &:hover{
-                    +.btn{
-                        >div{
-                            transform: rotate(225deg);
-                            top: 0;
+                    &:hover{
+                        +.btn{
+                            >div{
+                                transform: rotate(225deg);
+                                top: 0;
+                            }
                         }
                     }
                 }
             }
-        }
-        .btn{ 
-            @include flexmix(row);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            width: 50px;
-            height: 50px;
-            div{
-                width: 70%;
-                height: 4px;
-                background: $deepblue;
+            .btn{ 
+                @include flexmix(row);
+                top: 0;
+                left: 0;
                 z-index: 1;
-                border-radius: 5px;
-                transition: all 0.3s ease-in-out 0.3s;
-                position: relative;
-                &::before,
-                &::after{
-                    content: '';
-                    position: absolute;
-                    width: 100%;
+                width: 50px;
+                height: 50px;
+                position: fixed;
+                div{
+                    width: 10px;
                     height: 4px;
-                    background: inherit;
+                    background: $deepblue;
                     z-index: 1;
+                    position: relative;
+                    top: 0;
+                    left: 0;
                     border-radius: 5px;
-                    transition: inherit;
-                    z-index: 1;
-                }
-                &::before{
-                    top: -16px;
-                } 
-                &::after{
-                    top: 16px;
-                }
-            }        
+                    transition: all 0.3s ease-in-out 0.3s;
+                    &::before,
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        width: 10px;
+                        height: 4px;
+                        background: inherit;
+                        z-index: 1;
+                        border-radius: 5px;
+                        transition: inherit;
+                        z-index: 1;
+                    }
+                    &::before{
+                        top: -16px;
+                    } 
+                    &::after{
+                        top: 16px;
+                    }
+                }        
+            }
         }
     }
-}
-.main{
-    position: relative;
-    top: 5em;
-
-    /*home.html*/
-    .home-div{
+    .main{
         position: absolute;
-        .first{
-            @include grids();
-            grid-template-columns: auto;
-            grid-template-areas: 
-            'upleft katikati katikati rightsec'
-            'downleft katikati katikati rightsec';
-            .upper-left{
-                grid-area: upleft;
-                position: relative;               
-                @include boxes();
-                @include flexmix(column);
-                &::after{
-                    content:"";
-                    background-image: url('2.jpg');
-                    @include imgs();
-                    @include background();
-                }
-                h2 {
-                    @include fonts(1rem)
-                }
-            }
-            .bottom-left{
-                grid-area: downleft;
-                position: relative;
-                @include boxes();
-                @include flexmix(column);
-                &::after{
-                    content:"";
-                    background-image: url('3.jpg');
-                    @include imgs();
-                    @include background();
-                }
-                h2 {
-                    @include fonts(1rem);
-                    color: $deepwhite;
-                }
-            }
-            .middle-sec{
-                grid-area: katikati;
-                position: relative;
-                @include boxes();
-                margin: 0;               
-                @include flexmix(column);
-                text-align: center;
-                &::after{
-                    content:"";
-                    background-image: url('1.jpg');
-                    @include imgs();
-                    @include background();
-                }
-                h1 {
-                    @include fonts(2rem);
-                    color: $deepwhite;
-                }
-                p{
-                    @include fonts(1rem);
-                    color: $deepwhite;
-                }
-            }
-            .right-sec{
-                grid-area: rightsec;
-                position: relative;
-                @include boxes();                
-                @include flexmix(column);
-                &::after{
-                    content:"";
-                    background-image: url('4.jpg');
-                    @include imgs();
-                    @include background();
-                }
-                h2 {
-                    @include fonts(1rem);
-                    color: $deepwhite;
-                }
-                p{
-                    @include fonts(1rem);
-                    color: $deepwhite;
-                }
-            }           
-        }
-        .middle-page {
-            margin-top: 30px;
-            ul{
-                position: relative;
+        top: 70px;
+        /*home.html*/
+        .home-div{
+            .first{
                 @include grids();
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: auto;
+                grid-template-areas: 
+                'upleft katikati katikati rightsec'
+                'downleft katikati katikati rightsec';
+                .upper-left{
+                    grid-area: upleft;
+                    @include boxes();
+                    @include flexmix(column);
+                    &::after{
+                        content:"";
+                        background-image: url('2.jpg');
+                        @include imgs();
+                        @include background();
+                    }
+                    h2 {
+                        @include fonts(1rem)
+                    }
+                }
+                .bottom-left{
+                    grid-area: downleft;
+                    @include boxes();
+                    @include flexmix(column);
+                    &::after{
+                        content:"";
+                        background-image: url('3.jpg');
+                        @include imgs();
+                        @include background();
+                    }
+                    h2 {
+                        @include fonts(1rem);
+                        color: $deepwhite;
+                    }
+                }
+                .middle-sec{
+                    grid-area: katikati;
+                    @include boxes();
+                    margin: 0;               
+                    @include flexmix(column);
+                    text-align: center;
+                    &::after{
+                        content:"";
+                        background-image: url('1.jpg');
+                        @include imgs();
+                        @include background();
+                    }
+                    h1 {
+                        @include fonts(2rem);
+                        color: $deepwhite;
+                    }
+                    p{
+                        @include fonts(1rem);
+                        color: $deepwhite;
+                    }
+                }
+                .right-sec{
+                    grid-area: rightsec;
+                    @include boxes();                
+                    @include flexmix(column);
+                    &::after{
+                        content:"";
+                        background-image: url('4.jpg');
+                        @include imgs();
+                        @include background();
+                    }
+                    h2 {
+                        @include fonts(1rem);
+                        color: $deepwhite;
+                    }
+                    p{
+                        @include fonts(1rem);
+                        color: $deepwhite;
+                    }
+                }           
+            }
+            .middle-page {
+                margin-top: 30px;
+                ul{
+                    @include grids();
+                    grid-template-columns: repeat(4, 1fr);
+                    border: none;
+                    padding: 5rem;
+                    li{
+                        width: (100% / 4);
+                        &:nth-of-type(1){
+                            animation: kwanza;
+                            @include animate(1s);
+                            @include lists();
+                        }
+                        &:nth-of-type(2){
+                            animation: pili;
+                            @include animate(0.5s);
+                            @include lists();
+                        }
+                        &:nth-of-type(3){
+                            animation: tatu;
+                            @include animate(0.5s);
+                            @include lists();
+                        }
+                        &:nth-of-type(4){
+                            animation: nne;
+                            @include animate(1s);
+                            @include lists();
+                        }
+                        a{
+                            text-decoration: none;
+                            box-sizing: border-box;
+                            padding: 20px;
+                            border-radius: 100%;
+                            color: $deepyellow;
+                            background-color: $deepblue;
+                            transition: all 0.3s ease 0.3s;
+                            &:hover{
+                                transform: scale(1.2, 1.2);
+                                opacity: 0.7;
+                            }
+                        }
+                        small{
+                            font-family: sans-serif;
+                            margin-top: 5px;    
+                            @include fonts(1rem); 
+                            color: $deepblue;             
+                        }
+                    }
+                    @keyframes kwanza{
+                        0%{left: -500px;}
+                        100%{left: 0;}
+                    }
+                    @keyframes pili{
+                        0%{left: -500px;}
+                        100%{left: 25%;}
+                    }
+                    @keyframes tatu{
+                        0%{right: -200px; opacity: 0;}
+                        100%{right: 25%;}
+                    }
+                    @keyframes nne{
+                        0%{right: -200px; opacity: 0;}
+                        100%{right: 0;}
+                    }
+                }
+            }
+            .bottom{
+                @include grids();
+                grid-template-columns: repeat(2, 1fr);
+                @include boxes();
+                margin-bottom: 20px;
                 border: none;
-                padding: 5rem;
-                li{
-                    width: (100% / 4);
-                    &:nth-of-type(1){
-                        animation: kwanza;
-                        @include animate(1s);
-                        @include lists();
+                align-items: center;
+                .picture{
+                    height: 400px;
+                    box-sizing: border-box;
+                    padding: 10px;
+                }
+                p{
+                    @include fonts(1.5rem);
+                    color: $deepblue;
+                }
+            }
+        }
+        
+        /*login page*/
+        .login{
+            height: 100vh;
+            width: 100vw;
+            .form-wrap{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                @include boxes();
+                @include flexmix(row);           
+                .login-div1{
+                    box-sizing: border-box;
+                    padding: 20px;
+                    height: 100%;
+                    vertical-align: middle;
+                    align-items: center;
+                    width: 40%;
+                    h3{
+                        @include fonts(2rem)
                     }
-                    &:nth-of-type(2){
-                        animation: pili;
-                        @include animate(0.5s);
-                        @include lists();
+                }
+                .login-div2{
+                    box-sizing: border-box;
+                    padding: 20px;
+                    height: 100%;
+                    width: 60%;
+                    margin-left: 10px;
+                    .form{
+                        border: none;
+                        background: transparent;
+                        .fieldset{
+                            border: none;
+                            @include flexmix(row);
+                            .legend{
+                                @include fonts(1rem);
+                                color: $deepblue;
+                            }
+                            .label{
+                                @include fonts(1rem);
+                                color: $deepblue;
+                                margin-bottom: 5px;
+                            }
+                            .input{
+                                border: none;
+                                width: 100%;
+                                background: transparent;
+                                border-bottom: 2px solid $deepblue;
+                                margin-bottom: 5px;
+                                &:checked{
+                                    border: 1px solid $deepblue;
+                                    background: inherit;
+                                }
+                            }
+                        }
                     }
-                    &:nth-of-type(3){
-                        animation: tatu;
-                        @include animate(0.5s);
-                        @include lists();
-                    }
-                    &:nth-of-type(4){
-                        animation: nne;
-                        @include animate(1s);
-                        @include lists();
-                    }
-                    a{
-                        text-decoration: none;
-                        box-sizing: border-box;
-                        padding: 20px;
-                        border-radius: 100%;
-                        color: $deepyellow;
-                        background-color: $deepblue;
+                    .submit{
+                        width: 100%;
+                        background: $deepblue;
+                        color: $deepwhite;
                         transition: all 0.3s ease 0.3s;
                         &:hover{
-                            transform: scale(1.2, 1.2);
                             opacity: 0.7;
                         }
                     }
-                    small{
-                        font-family: sans-serif;
-                        margin-top: 5px;    
-                        @include fonts(1rem); 
-                        color: $deepblue;             
-                    }
-                }
-                @keyframes kwanza{
-                    0%{left: -500px;}
-                    100%{left: 0;}
-                }
-                @keyframes pili{
-                    0%{left: -500px;}
-                    100%{left: 25%;}
-                }
-                @keyframes tatu{
-                    0%{right: -200px; opacity: 0;}
-                    100%{right: 25%;}
-                }
-                @keyframes nne{
-                    0%{right: -200px; opacity: 0;}
-                    100%{right: 0;}
                 }
             }
         }
-        .bottom{
-            @include grids();
-            grid-template-columns: repeat(2, 1fr);
-            @include boxes();
-            margin-bottom: 20px;
-            border: none;
-            align-items: center;
-            .picture{
-                width: 100%;
-                height: 400px;
-                box-sizing: border-box;
-                padding: 10px;
-            }
-            p{
-                @include fonts(1.5rem);
-                color: $deepblue;
+
+        /*products page*/
+        .products-div{
+            .sales{
+                @include grids();
+                grid-template-columns: repeat(4, 1fr);
+                margin-bottom: 20px;
+                div{
+                    @include boxes;
+                    @include flexmix(column);
+                    background-color: $deepwhite;
+                    image{
+                        width: auto;
+                        height: 50%;
+                        box-sizing: border-box;
+                        padding: 10px;
+                    }
+                    h4{
+                        @include fonts(2rem);
+                        color: $deepblue;
+                    }
+                    p{
+                        @include fonts(1rem);
+                        color: $deepblue;
+                    }
+                }
             }
         }
         .footer{
             background: $deepblue;
+            bottom: 0;
             padding: 2rem;
+            margin-top: 20px;
             border: none;
+                @include fonts(1rem);
+                color:$deepwhite;
             text-align: center;
             p{
                 @include fonts(1rem);
-                color:$deepwhite;
-            }
-        }
-    }
-    
-    /*login page*/
-    .login{
-        @include boxes();
-        @include flexmix(row);
-        position: absolute;
-        top:300px;
-        left: 50%;
-        min-width: 60%;
-        min-height: 300px;
-        transform: translate(-50%, -50%);
-
-        .login-div1{
-            box-sizing: border-box;
-            padding: 20px;
-            height: 100%;
-            vertical-align: middle;
-            align-items: center;
-            width: 40%;
-            h3{
-                @include fonts(2rem)
-            }
-        }
-        .login-div2{
-            box-sizing: border-box;
-            padding: 20px;
-            height: 100%;
-            width: 60%;
-            margin-left: 10px;
-            .form{
-                border: none;
-                background: transparent;
-                .fieldset{
-                    border: none;
-                    @include flexmix(row);
-                    .legend{
-                        @include fonts(1rem);
-                        color: $deepblue;
-                    }
-                    .label{
-                        @include fonts(1rem);
-                        color: $deepblue;
-                        margin-bottom: 5px;
-                    }
-                    .input{
-                        border: none;
-                        width: 100%;
-                        background: transparent;
-                        border-bottom: 2px solid $deepblue;
-                        margin-bottom: 5px;
-                        &:checked{
-                            border: 1px solid $deepblue;
-                            background: inherit;
-                        }
-                    }
-                }
-            }
-            .submit{
-                width: 100%;
-                background: $deepblue;
-                color: $deepwhite;
-                transition: all 0.3s ease 0.3s;
-                &:hover{
-                    opacity: 0.7;
-                }
-            }
-        }
-    }
-
-    /*products page*/
-    .products-div{
-        position: absolute;
-        .sales{
-            @include grids();
-            grid-template-columns: repeat(4, 1fr);
-            margin-bottom: 20px;
-            div{
-                @include boxes;
-                @include flexmix(column);
-                background-color: $deepwhite;
-                image{
-                    width: auto;
-                    height: 50%;
-                    box-sizing: border-box;
-                    padding: 10px;
-                }
-                h4{
-                    @include fonts(2rem);
-                    color: $deepblue;
-                }
-                p{
-                    @include fonts(1rem);
-                    color: $deepblue;
-                }
             }
         }
     }

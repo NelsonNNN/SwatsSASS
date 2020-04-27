@@ -7,7 +7,6 @@
     <title>Flask</title>
 </head>
 <body>
-<img src='{{url_for('static', filename='scss/background.jpg')}}' class='page-img'>
     <header class='header'>
         <div class='checkbox'>
             <input type='checkbox' class='toggler'>
@@ -29,6 +28,9 @@
     <main class='main'>
         {% block content%}
         {%endblock%}
+        <footer class='footer'>
+            <p>SWATS &copy; 2020</p>
+        </footer>
     </main>
 </body>
 </html>
