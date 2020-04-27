@@ -5,10 +5,24 @@
     margin: 0;
     padding: 0;
 }
+html{
+    height: 100%;
+}
 body{
     position: relative;
     top: 0;
     left: 0;
+    min-height: 100%;
+    &::after{
+        content: '';
+        background-image: url('background.jpg');
+        position: fixed;
+        @include imgs();
+        @include background();
+        z-index: -2;
+        opacity: 0.4;
+    }
+
     /*layout.html*/
     .header{
         height: 50px;
@@ -264,6 +278,7 @@ body{
                     position: relative;
                     li{
                         position: absolute;
+                        box-sizing: border-box;
                         &:nth-of-type(1){
                             animation: kwanza;
                             @include animate(1s);
