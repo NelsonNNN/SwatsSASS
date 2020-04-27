@@ -12,6 +12,7 @@ body {
   top: 0;
   left: 0;
   min-height: 100%;
+  width: 100vw;
   /*layout.html*/
 }
 
@@ -34,7 +35,7 @@ body::after {
 
 body .header {
   height: 50px;
-  width: 50px;
+  width: 100vw;
 }
 
 body .header .checkbox {
@@ -257,9 +258,15 @@ body .header .checkbox .btn div::after {
 body .main {
   position: absolute;
   top: 70px;
+  width: 100vw;
   /*home.html*/
   /*login page*/
   /*products page*/
+}
+
+body .main .home-div {
+  position: relative;
+  top: 20px;
 }
 
 body .main .home-div .first {
@@ -790,6 +797,7 @@ body .main .home-div .bottom .picture {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 10px;
+  width: 100%;
 }
 
 body .main .home-div .bottom p {
